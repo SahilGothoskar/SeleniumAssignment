@@ -18,6 +18,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
+@Epic("Suite")
+@Feature("Login Feature")
 public class Test01 {
 	
 	public static WebDriver driver;
@@ -26,7 +36,8 @@ public class Test01 {
     
 	@BeforeTest
     public void setUp() {
-
+		
+		// download options
 		FirefoxOptions options = new FirefoxOptions();
 		options.addPreference("browser.download.folderList", 2);
 		options.addPreference("browser.download.dir", "/Users/xinyihu/Desktop/NEU/info6255/SeleniumProject/Downloads");
@@ -35,18 +46,20 @@ public class Test01 {
 		options.addPreference("browser.helperApps.neverAsk.saveToDisk", "application/pdf;text/plain;application/text;text/xml;application/xml");
 		options.addPreference("pdfjs.disabled", true);
 		options.addPreference("security.fileuri.strict_origin_policy", false);
-		
+
         System.setProperty("webdriver.gecko.driver", "/Users/xinyihu/Desktop/NEU/info6255/geckodriver");
         driver = new FirefoxDriver(options);
         driver.manage().window().maximize();
     }
 	
 	@Test(dataProvider="userData")
+	@Story("Valid Login")
+	@Description("Test the login functionality with valid credentials.")
 	public void portalLogin(String username, String domain, String password) throws InterruptedException, IOException {
-		
-        driver.get("https://me.northeastern.edu");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         
+		driver.get("https://me.northeastern.edu");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
         // passing user-name
         WebElement usernameField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input")));
         usernameField.sendKeys(username + domain);
@@ -79,63 +92,67 @@ public class Test01 {
         yesButton.click();
     }
 	
-//	@Test(dataProvider="userData")
-//    public void transcriptDownload(String username, String domain, String password) throws InterruptedException, IOException {
-//        
-//        driver.get("https://northeastern.sharepoint.com/sites/StudentHub");
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-//        
-//        WebElement resourcesTab = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Resources")));
-//        ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
-//        resourcesTab.click();
-//        
-//        WebElement academicsLink = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[contains(text(),'Academics, Classes & Registration')]")));
-//        ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
-//        academicsLink.click();
-//
-//        WebElement myTranscriptsLink = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("My Transcript")));
-//        ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
-//        myTranscriptsLink.click();
-//        
-//        for(String winHandle : driver.getWindowHandles()){
-//            driver.switchTo().window(winHandle);
-//        }
-//        
-//        TimeUnit.SECONDS.sleep(3);
-//        
-//        // passing user-name
-//        WebElement usernameField = wait.until(ExpectedConditions.elementToBeClickable(By.id("username")));
-//	    usernameField.sendKeys(username);
-//	    ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
-//	
-//	    //passing password
-//	    WebElement passwordField = wait.until(ExpectedConditions.elementToBeClickable(By.id("password")));
-//	    passwordField.sendKeys(password);
-//	    ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
-//	    
-//        WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.name("_eventId_proceed")));
-//        loginButton.click();
-//        
-//        driver.switchTo().frame("duo_iframe");
-//        WebElement sendPushButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Send Me a Push')]")));
-//        ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
-//        sendPushButton.click();
-//        driver.switchTo().defaultContent();
-//        
-//        // select transcript type
-//        WebElement transcriptLevelDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@name='levl']")));
-//        Select transcriptLevelSelect = new Select(transcriptLevelDropdown);
-//        transcriptLevelSelect.selectByVisibleText("Graduate");
-//        
-//        WebElement transcriptTypeDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@name='tprt']")));
-//        Select transcriptTypeSelect = new Select(transcriptTypeDropdown);
-//        transcriptTypeSelect.selectByVisibleText("Audit Transcript");
-//        
-//        ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
-//        
-//        WebElement submitButton = driver.findElement(By.xpath("//input[@value='Submit']"));
-//        submitButton.click();
-//    }
+	@Test(dataProvider="userData")
+	@Story("Transcript Download")
+	@Description("Log in to My Transcript and view graduate transcript.")
+    public void transcriptDownload(String username, String domain, String password) throws InterruptedException, IOException, AWTException {
+        
+        driver.get("https://northeastern.sharepoint.com/sites/StudentHub");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        
+        WebElement resourcesTab = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Resources")));
+        ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
+        resourcesTab.click();
+        
+        WebElement academicsLink = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[contains(text(),'Academics, Classes & Registration')]")));
+        ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
+        academicsLink.click();
+
+        WebElement myTranscriptsLink = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("My Transcript")));
+        ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
+        myTranscriptsLink.click();
+        
+        for(String winHandle : driver.getWindowHandles()){
+            driver.switchTo().window(winHandle);
+        }
+        
+        TimeUnit.SECONDS.sleep(3);
+        
+        // passing user-name
+        WebElement usernameField = wait.until(ExpectedConditions.elementToBeClickable(By.id("username")));
+	    usernameField.sendKeys(username);
+	    ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
+	
+	    //passing password
+	    WebElement passwordField = wait.until(ExpectedConditions.elementToBeClickable(By.id("password")));
+	    passwordField.sendKeys(password);
+	    ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
+	    
+        WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.name("_eventId_proceed")));
+        loginButton.click();
+        
+        driver.switchTo().frame("duo_iframe");
+        WebElement sendPushButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(), 'Send Me a Push')]")));
+        ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
+        sendPushButton.click();
+        driver.switchTo().defaultContent();
+        
+        // select transcript type
+        WebElement transcriptLevelDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@name='levl']")));
+        Select transcriptLevelSelect = new Select(transcriptLevelDropdown);
+        transcriptLevelSelect.selectByVisibleText("Graduate");
+        
+        WebElement transcriptTypeDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//select[@name='tprt']")));
+        Select transcriptTypeSelect = new Select(transcriptTypeDropdown);
+        transcriptTypeSelect.selectByVisibleText("Audit Transcript");
+        
+        ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
+        
+        WebElement submitButton = driver.findElement(By.xpath("//input[@value='Submit']"));
+        submitButton.click();
+        
+        // unable to download
+    }
 	
 	@DataProvider(name = "userData")
 	public String[][] userData() throws IOException {

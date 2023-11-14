@@ -10,12 +10,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+
+@Epic("Suite")
+@Feature("Dataset Download")
 public class Test04 {
 	
 	private String testName = "Scenario 4";
 	private int counter = 0;
 	
 	@Test
+	@Story("Dataset Download")
+	@Description("Downloading a dataset from Northeastern Library.")
 	public void classroomGuide() throws InterruptedException {
 		WebDriver driver = Test01.driver;
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));

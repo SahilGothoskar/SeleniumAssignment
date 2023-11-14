@@ -10,11 +10,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+
+@Epic("Suite")
+@Feature("Academic Calendar")
 public class Test05 {
 	private String testName = "Scenario 5";
 	private int counter = 0;
 	
 	@Test
+	@Story("Academic Calendar Reivew")
+	@Description("View academic calendar and unselect graduate calendar.")
 	public void academicCalendar() throws InterruptedException {
 		WebDriver driver = Test01.driver;
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));

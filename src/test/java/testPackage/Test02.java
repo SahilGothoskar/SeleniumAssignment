@@ -13,12 +13,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
+
+@Epic("Suite")
+@Feature("Add To-do on Canvas")
 public class Test02 {
 	
 	private String testName = "Scenario 2";
 	private int counter = 0;
 	
 	@Test(dataProvider="todoData")
+	@Story("Canvas To-do")
+	@Description("Adding a To-do item to Canvas Calendar.")
 	public void addCanvasTodo(String title, String date, String time, String details) throws InterruptedException, IOException{
 		WebDriver driver = Test01.driver;
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
