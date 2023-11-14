@@ -5,6 +5,9 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Pdf;
+import org.openqa.selenium.PrintsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -22,9 +25,11 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.openqa.selenium.print.PrintOptions;
 
-import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Epic("Suite")
 @Feature("Login Feature")
@@ -64,7 +69,6 @@ public class Test01 {
         WebElement usernameField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input")));
         usernameField.sendKeys(username + domain);
         
-        TimeUnit.SECONDS.sleep(1);
         ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
         
         WebElement nextButton = driver.findElement(By.id("idSIButton9"));
@@ -74,7 +78,6 @@ public class Test01 {
         WebElement passwordField = wait.until(ExpectedConditions.elementToBeClickable(By.name("passwd")));
         passwordField.sendKeys(password);
         
-        TimeUnit.SECONDS.sleep(1);
         ScreenshotHelper.takeScreenshot(driver, testName, ++counter);
         
         WebElement signInButton = driver.findElement(By.id("idSIButton9"));
@@ -95,7 +98,7 @@ public class Test01 {
 	@Test(dataProvider="userData")
 	@Story("Transcript Download")
 	@Description("Log in to My Transcript and view graduate transcript.")
-    public void transcriptDownload(String username, String domain, String password) throws InterruptedException, IOException, AWTException {
+    public void transcriptDownload(String username, String domain, String password) throws InterruptedException, IOException {
         
         driver.get("https://northeastern.sharepoint.com/sites/StudentHub");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -116,7 +119,7 @@ public class Test01 {
             driver.switchTo().window(winHandle);
         }
         
-        TimeUnit.SECONDS.sleep(3);
+        TimeUnit.SECONDS.sleep(1);
         
         // passing user-name
         WebElement usernameField = wait.until(ExpectedConditions.elementToBeClickable(By.id("username")));
@@ -151,7 +154,15 @@ public class Test01 {
         WebElement submitButton = driver.findElement(By.xpath("//input[@value='Submit']"));
         submitButton.click();
         
-        // unable to download
+        TimeUnit.SECONDS.sleep(1);
+        
+        // Print the page to PDF
+        PrintsPage printsPage = (PrintsPage) driver;
+        Path printPage = Paths.get("/Users/xinyihu/Desktop/NEU/info6255/SeleniumProject/Downloads/My_Transcript.pdf");
+    	Pdf print = printsPage.print(new PrintOptions());
+    	Files.write(printPage, OutputType.BYTES.convertFromBase64Png(print.getContent()));
+
+        TimeUnit.SECONDS.sleep(1);
     }
 	
 	@DataProvider(name = "userData")
