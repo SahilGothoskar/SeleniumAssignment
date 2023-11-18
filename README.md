@@ -230,6 +230,68 @@ This repository contains a Selenium test scenario written in Java for automating
 - Ensure the WebDriver executable is available and paths are correctly set.
 - Customize the test script based on specific requirements or library portal changes.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# 5. Selenium Test Scenario 5: Update the Academic Calendar
+
+## Overview
+
+This repository contains a Selenium test scenario written in Java for automating the process of updating the Academic Calendar on Northeastern University's Student Hub.
+
+## Prerequisites
+
+- **Java JDK:** Ensure that Java JDK is installed.
+- **WebDriver:** Make sure the WebDriver (GeckoDriver for Firefox) is installed.
+- **Browser:** Mozilla Firefox browser.
+- **TestNG:** Framework for test execution.
+- **Allure:** For test reporting.
+
+## Setup
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/your-repository.git
+    ```
+
+2. **Project Setup:**
+    - Set up the project in your preferred IDE.
+    - Download dependencies using Maven or Gradle.
+
+3. **WebDriver Configuration:**
+    - Download and configure GeckoDriver for Firefox.
+
+## Configuration
+
+- The test scenario is configured to view the Academic Calendar on Northeastern University's Student Hub and unselect the graduate calendar.
+
+## Usage
+
+1. **Run Tests:**
+    - Run the `Test05` class as a TestNG test.
+
+2. **Test Steps:**
+    - Opens a new tab and navigates to the Northeastern University Student Hub.
+    - Clicks on "Academics, Classes & Registration."
+    - Clicks on "Academic Calendar."
+    - Switches to the Academic Calendar page.
+    - Unchecks the graduate calendar option.
+    - Scrolls to the bottom of the page.
+    - Switches to the calendar iframe and verifies the "Add to My Calendar" button.
+
+## Reporting
+
+- Use Allure for test reporting.
+    ```bash
+    allure serve allure-results
+    ```
+
+## Notes
+
+- Ensure the WebDriver executable is available and paths are correctly set.
+- Customize the test script based on specific requirements or Student Hub changes.
+
+
 ## Contributors
 
 - Xinyi Hu
@@ -239,5 +301,6 @@ This repository contains a Selenium test scenario written in Java for automating
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 
