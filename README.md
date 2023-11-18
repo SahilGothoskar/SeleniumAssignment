@@ -1,4 +1,4 @@
-# Selenium Test Scenario 1: Download the Latest Transcript
+# 1. Selenium Test Scenario 1: Download the Latest Transcript
 
 ## Overview
 
@@ -60,7 +60,7 @@ This repository contains a Selenium test scenario written in Java for automating
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
-# Selenium Test Scenario 2: Add Two To-Do Tasks
+# 2. Selenium Test Scenario 2: Add Two To-Do Tasks
 
 ## Overview
 
