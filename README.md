@@ -55,10 +55,6 @@ This repository contains a Selenium test scenario written in Java for automating
     ```
 
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 
 # 2. Selenium Test Scenario 2: Add Two To-Do Tasks
 
@@ -121,10 +117,6 @@ This repository contains a Selenium test scenario written in Java for automating
 - Ensure the WebDriver executable is available and paths are correctly set.
 - Customize the test script based on specific requirements or Canvas changes.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 
 
 # 3. Selenium Test Scenario 3: Download a Classroom Guide
@@ -180,10 +172,6 @@ This repository contains a Selenium test scenario written in Java for automating
 
 - Ensure the WebDriver executable is available and paths are correctly set.
 - Customize the test script based on specific requirements or portal changes.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
 
