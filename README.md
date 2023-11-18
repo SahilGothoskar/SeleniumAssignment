@@ -54,6 +54,8 @@ This repository contains a Selenium test scenario written in Java for automating
     allure serve allure-results
     ```
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 # 2. Selenium Test Scenario 2: Add Two To-Do Tasks
@@ -117,7 +119,8 @@ This repository contains a Selenium test scenario written in Java for automating
 - Ensure the WebDriver executable is available and paths are correctly set.
 - Customize the test script based on specific requirements or Canvas changes.
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # 3. Selenium Test Scenario 3: Download a Classroom Guide
 
@@ -173,7 +176,8 @@ This repository contains a Selenium test scenario written in Java for automating
 - Ensure the WebDriver executable is available and paths are correctly set.
 - Customize the test script based on specific requirements or portal changes.
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # 4. Selenium Test Scenario 4: Download a Dataset
 
@@ -231,7 +235,7 @@ This repository contains a Selenium test scenario written in Java for automating
 - Customize the test script based on specific requirements or library portal changes.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # 5. Selenium Test Scenario 5: Update the Academic Calendar
 
@@ -302,5 +306,5 @@ This repository contains a Selenium test scenario written in Java for automating
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
