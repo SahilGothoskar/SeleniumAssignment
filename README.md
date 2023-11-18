@@ -308,3 +308,39 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# Test Suite Configuration
+
+The test suite is configured using TestNG to execute the five test scenarios collectively. The `testng.xml` file defines the suite structure and specifies the classes to include in the suite.
+
+## TestNG XML Configuration
+
+The `testng.xml` file orchestrates the test suite with the following structure:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <listeners>
+    <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+  </listeners>
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="testPackage.Test01"/>
+      <class name="testPackage.Test02"/>
+      <class name="testPackage.Test03"/>
+      <class name="testPackage.Test04"/>
+      <class name="testPackage.Test05"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+```
+
+## Suite Execution
+
+- The testng.xml file specifies the suite structure, including the listeners used for Allure test reporting.
+- The suite is named "Suite" and contains a single test named "Test."
+- The test includes five classes (Test01 to Test05) representing the individual test scenarios.
+- The suite is configured to run with a thread count of 5.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
