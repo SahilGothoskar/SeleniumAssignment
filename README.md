@@ -121,6 +121,67 @@ This repository contains a Selenium test scenario written in Java for automating
 - Ensure the WebDriver executable is available and paths are correctly set.
 - Customize the test script based on specific requirements or Canvas changes.
 
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+# 3. Selenium Test Scenario 3: Download a Classroom Guide
+
+## Overview
+
+This repository contains a Selenium test scenario written in Java for automating the process of downloading a classroom guide from Northeastern University's service portal.
+
+## Prerequisites
+
+- **Java JDK:** Ensure that Java JDK is installed.
+- **WebDriver:** Make sure the WebDriver (GeckoDriver for Firefox) is installed.
+- **Browser:** Mozilla Firefox browser.
+- **TestNG:** Framework for test execution.
+- **Allure:** For test reporting.
+
+## Setup
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/your-repository.git
+    ```
+
+2. **Project Setup:**
+    - Set up the project in your preferred IDE.
+    - Download dependencies using Maven or Gradle.
+
+3. **WebDriver Configuration:**
+    - Download and configure GeckoDriver for Firefox.
+
+## Configuration
+
+- The test scenario is configured to download a classroom guide from the Northeastern University service portal.
+
+## Usage
+
+1. **Run Tests:**
+    - Run the `Test03` class as a TestNG test.
+
+2. **Test Steps:**
+    - Opens a new tab and navigates to the Northeastern University service portal.
+    - Selects a specific classroom from the list.
+    - Clicks on the Quick Guide PDF link.
+
+## Reporting
+
+- Use Allure for test reporting.
+    ```bash
+    allure serve allure-results
+    ```
+
+## Notes
+
+- Ensure the WebDriver executable is available and paths are correctly set.
+- Customize the test script based on specific requirements or portal changes.
+
+
 ## Contributors
 
 - Xinyi Hu
@@ -130,4 +191,5 @@ This repository contains a Selenium test scenario written in Java for automating
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
